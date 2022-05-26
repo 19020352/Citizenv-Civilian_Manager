@@ -1,0 +1,159 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/**********************/
+/*********Navbar*******/
+/**********************/
+.navbar {
+  margin-bottom: 0;
+}
+
+.navbar li::after {
+  content: "";
+  width: 0;
+  height: 4px;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  background: rgb(24, 163, 197);
+  transition: 0.5s;
+}
+.navbar li:hover::after {
+  width: 100%;
+}
+
+#nav-after {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.navbar .noafter::after {
+  height: 0px;
+}
+
+/**********************/
+/*****Registration*******/
+/**********************/
+.bcon {
+  padding-top: 25%;
+  padding-bottom: 25%;
+}
+.bcon img {
+  border-radius: 100%;
+}
+.reg.page-header {
+  margin-top: 20px;
+}
+/*Form style*/
+#city,
+#datepicker,
+#section {
+  margin-bottom: 3px;
+}
+
+
+/************************/
+/********Search Box*******/
+/************************/
+input[type="search"] {
+  color: #666;
+  background: #fff;
+  background-image: -webkit-linear-gradient(
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0)
+  );
+  border: 1px solid #bbb;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  display: block;
+  padding: 0.3em;
+  width: 100%;
+}
+
+input[type="search"] {
+  -webkit-appearance: textfield;
+  outline-offset: -2px;
+}
+
+#search-box {
+  position: relative;
+}
+#search-box .search {
+  position: absolute;
+  top: 20%;
+  right: 12px;
+}
+
+/**********************/
+/*****Modal************/
+/**********************/
+.modal-header .close {
+  margin-top: -20px;
+}
+#s_update .input-group {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+/**********************/
+/*******Student**********/
+/**********************/
+
+.form-login {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+}
+
+.submit-button {
+  color: white;
+  background-color: rgb(24, 163, 197);
+}
+
+.submit-button:hover {
+  color: white;
+  background-color: rgb(13, 93, 139);
+}
+
+#table th {
+  color: white;
+  background-color: rgb(24, 163, 197);
+}
+
+
+.del-edit-header {
+  width: 130px;
+}
+#pdf img {
+  height: 50px;
+}
+
+#pdf {
+  width: fit-content;
+}
+
+#pdf:hover {
+  background-color: #dfdede;
+}
+
+.manage-content .btn-default {
+  width: 5.9rem;
+  color: white;
+  background-color: #eb9aab;
+  border: none;
+}
+
+.manage-content .btn-default:hover {
+  background-color: #e26e87;
+  border: #666;
+}
+
+#login-button:hover {
+  background-color: rgb(200, 200, 200);
+}

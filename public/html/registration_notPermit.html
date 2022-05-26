@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head></head>
+  <body>
+    <section id="registration-content">
+      <style scoped>
+        #regis {
+          position: relative;
+          top: 45px;
+        }
+      </style>
+      <div class="container">
+        <div id="regis" class="row">
+          <div class="col-sm-3">
+            <div class="bcon">
+              <img src="../public/images/logo.png" />
+              <h1
+                style="
+                  color: white;
+                  background-color: rgb(24, 163, 197);
+                  width: inherit;
+                "
+              >
+                CitizenV
+              </h1>
+            </div>
+          </div>
+          <div class="col-sm-9">
+            <div class="row">
+              <div class="reg page-header col-xs-10">
+                <h3 class="text-center">Nhập thông tin dân cư</h3>
+              </div>
+              <div class="col-xs-2" id="pdf">
+                <a target="_blank" href="../Mẫu phiếu điều tra.pdf">
+                  <img src="../public/images/pdf.png" />
+                  <p>In phiếu</p>
+                </a>
+              </div>
+            </div>
+
+            <!-- Form start hear //<?php echo $_SERVER['PHP_SELF'];?> -->
+            <form
+              class="form-horizontal custom-form"
+              name="s_form"
+              method="post"
+            >
+              <div><h3>Bạn chưa được cấp quyền để khai báo dữ liệu!</h3></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="../public/js/registration.js"></script>
+  </body>
+</html>

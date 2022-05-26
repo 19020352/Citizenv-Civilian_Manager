@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head></head>
+  <body>
+
+    <div
+    class="modal fade"
+    id="userLockModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="userDelModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="userDelModalLabel" style="margin-right: 20px;">
+            Bạn chắc chắn muốn khóa tài khoản này?
+          </h4>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form
+            class="form-horizontal custom-form"
+            name="user_lock_form"
+            method="post"
+            onsubmit="setTimeout(function(){window.location.reload();},30);"
+          >
+            <!-- username_old -->
+            <div class="form-group" style="display: none;">
+              <div class="col-sm-5 control-label">
+                <label for="name-input-field">Tên đăng nhập</label>
+              </div>
+              <div class="col-sm-6 input-column">
+                <input
+                  class="form-control"
+                  name="username_old"
+                  id="username_old"
+                  type="text"
+                
+                />
+              </div>
+            </div>
+
+            <!-- Submit/Reset -->
+            <div class="form-group">
+              <div class="col-sm-2 control-label">
+                <label class="control-label"></label>
+              </div>
+              <div class="col-sm-4">
+                <button
+                  class="btn btn-block btn-success"
+                  type="submit"
+                  name="lock_but"
+
+                >
+                  Khóa
+                </button>
+              </div>
+              <div class="col-sm-4">
+                <button
+                  type="button"
+                  class="btn btn-block btn-warning"
+                  data-dismiss="modal"
+                >
+                  Hủy
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <div
+      class="modal fade"
+      id="userEditModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="userEditModalLabel"
+      aria-hidden="true"
+    >
+      <style scoped>
+        .modal-dialog {
+          position: relative;
+          /* display: table; /* This is important */
+          overflow-y: auto;
+          overflow-x: auto;
+          width: auto;
+          min-width: fit-content;
+          max-width: fit-content;
+        }
+      </style>
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="userEditModalLabel">Tài khoản</h4>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form
+              class="form-horizontal custom-form"
+              name="user_edit_form"
+              method="post"
+              onsubmit="setTimeout(function(){window.location.reload();},30);"
+            >
+              <!-- Đơn vị -->
+              <div class="form-group">
+                <div class="col-sm-5 control-label">
+                  <label for="name-input-field">Đơn vị</label>
+                </div>
+                <div class="col-sm-6 input-column">
+                  <input
+                    class="form-control"
+                    name="don_vi"
+                    id="don_vi"
+                    type="text"
+                    oninput="setCustomValidity('')"
+                    required
+                    oninvalid="this.setCustomValidity('Đây là thông tin bắt buộc, vui lòng nhập đúng định dạng và không để trống!')"
+                  />
+                </div>
+              </div>
+              <!-- username_old -->
+              <div class="form-group" style="display: none;">
+                <div class="col-sm-5 control-label">
+                  <label for="name-input-field">Tên đăng nhập</label>
+                </div>
+                <div class="col-sm-6 input-column">
+                  <input
+                    class="form-control"
+                    name="username_old"
+                    id="username_old"
+                    type="text"
+                  
+                  />
+                </div>
+              </div>
+              <!-- username -->
+              <div class="form-group">
+                <div class="col-sm-5 control-label">
+                  <label for="name-input-field">Tên đăng nhập</label>
+                </div>
+                <div class="col-sm-6 input-column">
+                  <input
+                    class="form-control"
+                    name="username"
+                    id="username"
+                    type="text"
+                    pattern=".{0,}"
+                    oninput="setCustomValidity('')"
+                    required
+                    oninvalid="this.setCustomValidity('Đây là thông tin bắt buộc, vui lòng không để trống!')"
+                  />
+                </div>
+              </div>
+              <!-- Mật khẩu -->
+              <div class="form-group">
+                <div class="col-sm-5 control-label">
+                  <label for="name-input-field">Mật khẩu</label>
+                </div>
+                <div class="col-sm-6 input-column">
+                  <input
+                    class="form-control"
+                    name="password"
+                    id="password"
+                    type="text"
+                    pattern=".{0,}"
+                    oninput="setCustomValidity('')"
+                    required
+                    oninvalid="this.setCustomValidity('Đây là thông tin bắt buộc, vui lòng không để trống!')"
+                  />
+                </div>
+              </div>
+
+              <!-- Submit/Reset -->
+              <div class="form-group">
+                <div class="col-sm-5 control-label">
+                  <label class="control-label"></label>
+                </div>
+                <div class="col-sm-3">
+                  <button class="btn btn-block btn-success" type="submit" name="edit_but">
+                    Lưu
+                  </button>
+                </div>
+                <div class="col-sm-3">
+                  <button
+                    type="button"
+                    class="btn btn-block btn-warning"
+                    data-dismiss="modal"
+                  >
+                    Hủy
+                  </button>
+                </div>
+              </div>
+              <!-- Thông báo submit thành công/thất bại -->
+              <p id="submit-msg"></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="modal fade"
+      id="userDelModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="userDelModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="userDelModalLabel" style="margin-right: 20px;">
+              Bạn chắc chắn muốn xóa tài khoản này?
+            </h4>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form
+              class="form-horizontal custom-form"
+              name="user_del_form"
+              method="post"
+              onsubmit="setTimeout(function(){window.location.reload();},30);"
+            >
+              <!-- username_old -->
+              <div class="form-group" style="display: none;">
+                <div class="col-sm-5 control-label">
+                  <label for="name-input-field">Tên đăng nhập</label>
+                </div>
+                <div class="col-sm-6 input-column">
+                  <input
+                    class="form-control"
+                    name="username_old"
+                    id="username_old"
+                    type="text"
+                  
+                  />
+                </div>
+              </div>
+
+              <!-- Submit/Reset -->
+              <div class="form-group">
+                <div class="col-sm-2 control-label">
+                  <label class="control-label"></label>
+                </div>
+                <div class="col-sm-4">
+                  <button
+                    class="btn btn-block btn-success"
+                    type="submit"
+                    name="del_but"
+                  >
+                    Xóa bỏ
+                  </button>
+                </div>
+                <div class="col-sm-4">
+                  <button
+                    type="button"
+                    class="btn btn-block btn-warning"
+                    data-dismiss="modal"
+                  >
+                    Hủy
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="modal fade"
+      id="dateModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="dateModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="dateModalLabel">
+              Bạn không có quyền mở khóa tài khoản này!
+            </h4>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form
+              class="form-horizontal custom-form"
+              name="date_form"
+              method="post"
+              onsubmit="setTimeout(function(){window.location.reload();},30);"
+            >
+              
+              <!-- Submit/Reset -->
+              <div class="form-group">
+                <div class="col-sm-4 control-label">
+                  <label class="control-label"></label>
+                </div>
+                <div class="col-sm-4">
+                  <button
+                    class="btn btn-block btn-success"
+                    type="button"
+                    data-dismiss="modal"
+                  >
+                    Trở lại
+                  </button>
+                </div>
+                
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <section class="manage-content">
+      <style scoped>
+        div.container-fluid {
+          position: relative;
+          top: 60px;
+        }
+        div.manage-header {
+          margin-bottom: 40px;
+        }
+      </style>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-4 col-sm-12">
+            <div class="manage-header">
+              <h4 class="text-center">Cấp tài khoản</h4>
+            </div>
+            <form
+              class="form-horizontal custom-form"
+              name="m_form"
+              method="post"
+            >
+              <div><h3>Bạn chưa được cấp quyền cấp tài khoản!</h3></div>
+            </form>
+          </div>
+          <div class="col-md-8 col-sm-12">
+            <div class="manage-header">
+              <h4 class="text-center">Tài khoản đã cấp</h4>
+            </div>
+            <div class="table-div">
+              <table
+                class="table table-striped table-hover table-responsive"
+                id="table"
+              >
+                <thead>
+                  <tr>
+                    <th class="text-center">Đơn vị</th>
+                    <th class="text-center">Tên đăng nhập</th>
+                    <th class="text-center">Mật khẩu</th>
+                    <th class="text-center">Ngày mở</th>
+                    <th class="text-center">Ngày đóng</th>
+                    <th class="text-center">Tiến độ</th>
+                    <th class="text-center">Cấp quyền</th>
+                    <th class="text-center">Tài khoản</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="../public/js/manage.js"></script>
+  </body>
+</html>

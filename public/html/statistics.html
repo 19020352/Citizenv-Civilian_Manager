@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head></head>
+  <body>
+    <!--Div that will hold the pie chart-->
+    
+    <section class="content">
+      <style scoped>
+        .container-fluid {
+          position: relative;
+          top: 170px;
+        }
+        @media only screen and (max-width : 765px) {
+          .container-fluid {
+          position: relative;
+          top: 0px;
+        }
+        }
+      </style>
+      <div class="container-fluid">
+        <p>Đưa chuột vào biểu đồ để xem số liệu.</p>
+        <div class="row">
+          <div class="col-md-4">
+            <label class="col-xs-12 control-label">1. Giới tính</label>
+          </div>
+        </div>
+        <div class="row">
+          <!-- <div class="col-sm-12 col-md-1 col-xs-12 gioi-tinh-so-lieu-1"></div> -->
+          <div id="chart_gender_1"  class="col-md-offset-1 col-md-5 col-sm-12 col-xs-12" style="width: 450px; height: 250px;"></div>
+          <!-- <div class="col-sm-12 col-md-2 col-xs-12 gioi-tinh-so-lieu-2"></div> -->
+          <div id="chart_gender_2"  class="col-md-6 col-sm-12 col-xs-12" style="width: 550px; height: 220px;"></div>
+        </div>
+        <div class="row col-md-4">
+          <label class="col-sm-12 control-label">2. Tôn giáo</label>
+          <div id="chart_tongiao" class="col-sm-12" style="width: 450px; height: 250px;"></div>
+        </div>
+        <div class="row col-md-4">
+          <label class="col-sm-12 control-label">3. Nghề nghiệp</label>
+          <div id="chart_job" class="col-sm-12" style="width: 450px; height: 250px;"></div>
+        </div>
+        <div class="row col-md-4">
+          <label class="col-sm-12 control-label">4. Trình độ văn hóa</label>
+          <div id="chart_vanhoa" class="col-sm-12" style="width: 450px; height: 250px;"></div>
+        </div>
+      </div>
+    </section>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="../public/js/statistics.js"></script>
+  </body>
+</html>

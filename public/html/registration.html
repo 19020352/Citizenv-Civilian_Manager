@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head></head>
+  <body>
+    <section id="registration-content">
+      <style scoped>
+        #regis {
+          position: relative;
+          top: 45px;
+        }
+      </style>
+      <div class="container">
+        <div id="regis" class="row">
+          <div class="col-sm-3">
+            <div class="bcon">
+              <img src="../public/images/logo.png" />
+              <h1
+                style="
+                  color: white;
+                  background-color: rgb(24, 163, 197);
+                  width: inherit;
+                "
+              >
+                CitizenV
+              </h1>
+            </div>
+          </div>
+          <div class="col-sm-9">
+            <div class="row">
+              <div class="reg page-header col-xs-10">
+                <h3 class="text-center">Nhập thông tin dân cư</h3>
+              </div>
+              <div class="col-xs-2" id="pdf">
+                <a target="_blank" href="../Mẫu phiếu điều tra.pdf">
+                  <img src="../public/images/pdf.png" />
+                  <p>In phiếu</p>
+                </a>
+              </div>
+            </div>
+
+            <!-- Form start hear //<?php echo $_SERVER['PHP_SELF'];?> -->
+            <form
+              class="form-horizontal custom-form"
+              name="s_form"
+              method="post"
+            >
+              <!-- Số CMND/CCCD -->
+              <div class="form-group">
+                <div class="col-sm-4 control-label">
+                  <label>Số CMND/CCCD</label>
+                </div>
+                <div class="col-sm-8 input-column">
+                  <input
+                    class="form-control"
+                    name="f_cccd"
+                    type="text"
+                    placeholder="123456789/123456789999"
+                    pattern="\d{9}|\d{12}"
+                    required
+                    oninput="setCustomValidity('')"
+                    oninvalid="this.setCustomValidity('Đây là thông tin bắt buộc, vui lòng nhập đúng định dạng 9 số hoặc 12 số và không để trống!')"
+                  />
+                </div>
+              </div>
+              <!-- Họ tên -->
+              <div class="form-group">
+                <div class="col-sm-4 control-label">
+                  <label>Họ và tên</label>
+                </div>
+                <div class="col-sm-8 input-column">
+                  <input
+                    class="form-control"
+                    name="f_name"
+                    placeholder="Nguyễn Văn A"
+                    type="text"
+                    pattern=".{0,}"
+                    oninput="setCustomValidity('')"
+                    required
+                    oninvalid="this.setCustomValidity('Đây là thông tin bắt buộc, vui lòng nhập đúng định dạng và không để trống!')"
+                  />
+                </div>
+              </div>
+              <!-- Ngày sinh, giới tính -->
+              <div class="form-group">
+                <div class="col-sm-4 control-label">
+                  <label for="datepicker">Ngày sinh</label>
+                </div>
+                <div class="col-sm-3 input-column">
+                  <input
+                    class="form-control datepicker"
+                    id="datepicker"
+                    name="b_date"
+                    placeholder="2001-08-18"
+                    type="text"
+                    readonly
+                    required
+                    oninvalid="this.setCustomValidity('Đây là thông tin bắt buộc, vui lòng nhập đúng định dạng và không để trống!')"
+                  />
+                </div>
+                <div class="col-sm-2 control-label">
+                  <label>Giới tính</label>
+                </div>
+                <div class="col-sm-3">
+                  <div data-toggle="buttons">
+                    <label class="btn btn-default btn-circle active"
+                      ><input
+                        id="male"
+                        type="radio"
+                        name="gender"
+                        checked
+                        value="Nam" /><i
+                        class="fa fa-male"
+                        aria-hidden="true"
+                      ></i
+                    ></label>
+                    <label for="male"> Nam</label>
+                    <label class="btn btn-default btn-circle"
+                      ><input
+                        id="fe-male"
+                        type="radio"
+                        name="gender"
+                        value="Nữ" /><i
+                        class="fa fa-female"
+                        aria-hidden="true"
+                      ></i
+                    ></label>
+                    <label for="fe-male"> Nữ</label>
+                  </div>
+                </div>
+              </div>
+              <!-- Văn hóa, tôn giáo -->
+              <div class="form-group">
+                <div class="col-sm-4 control-label">
+                  <label for="van_hoa">Trình độ văn hóa</label>
+                </div>
+                <div class="col-sm-3 input-column">
+                  <input
+                    class="form-control"
+                    id="van_hoa"
+                    name="van_hoa"
+                    placeholder="Trình độ văn hóa"
+                    type="text"
+                    pattern=".{0,}"
+                    oninput="setCustomValidity('')"
+                    required
+                    oninvalid="this.setCustomValidity('Đây là thông tin bắt buộc, vui lòng nhập đúng định dạng và không để trống!')"
+                  />
+                </div>
+                <div class="col-sm-2 control-label">
+                  <label for="ton_giao">Tôn giáo</label>
+                </div>
+                <div class="col-sm-3 input-column">
+                  <input
+                    class="form-control"
+                    id="ton_giao"
+                    name="ton_giao"
+                    placeholder="Tôn giáo"
+                    type="text"
+                  />
+                </div>
+              </div>
+
+              <!-- Nghề nghiệp, mã địa chỉ -->
+              <div class="form-group">
+                <div class="col-sm-4 control-label">
+                  <label for="job">Nghề nghiệp</label>
+                </div>
+                <div class="col-sm-3 input-column">
+                  <input
+                    class="form-control"
+                    id="job"
+                    name="job"
+                    placeholder="Nghề nghiệp"
+                    type="text"
+                  />
+                </div>
+                <div class="col-sm-2 control-label">
+                  <label for="job">Mã vùng</label>
+                </div>
+                <div class="col-sm-3 input-column">
+                  <input
+                    class="form-control"
+                    id="ma_vung"
+                    name="ma_vung"
+                    placeholder="01010101"
+                    pattern="[0-9]{8}"
+                    required
+                    oninput="setCustomValidity('')"
+                    oninvalid="this.setCustomValidity('Đây là thông tin bắt buộc, vui lòng nhập đúng định dạng và không để trống!')"
+                    type="text"
+                  />
+                </div>
+              </div>
+              <!-- Quê quán -->
+              <div class="form-group">
+                <div class="col-sm-4 control-label">
+                  <label>Quê quán</label>
+                </div>
+                <div class="col-sm-8">
+                  <input
+                    class="form-control"
+                    id="que_quan"
+                    name="que_quan"
+                    placeholder="Quê quán"
+                    type="text"
+                    pattern=".{0,}"
+                    oninput="setCustomValidity('')"
+                    required
+                    oninvalid="this.setCustomValidity('Đây là thông tin bắt buộc, vui lòng nhập đúng định dạng và không để trống!')"
+                  />
+                </div>
+              </div>
+              <!-- Địa chỉ thường trú -->
+              <div class="form-group">
+                <div class="col-sm-4 control-label">
+                  <label>Địa chỉ thường trú</label>
+                </div>
+                <div class="col-sm-8">
+                  <input
+                    class="form-control"
+                    id="thuong_tru"
+                    name="thuong_tru"
+                    placeholder="Địa chỉ thường trú"
+                    type="text"
+                    pattern=".{0,}"
+                    oninput="setCustomValidity('')"
+                    required
+                    oninvalid="this.setCustomValidity('Đây là thông tin bắt buộc, vui lòng nhập đúng định dạng và không để trống!')"
+                  />
+                </div>
+              </div>
+              <!-- Địa chỉ tạm trú -->
+              <div class="form-group">
+                <div class="col-sm-4 control-label">
+                  <label>Địa chỉ tạm trú</label>
+                </div>
+                <div class="col-sm-8">
+                  <input
+                    class="form-control"
+                    id="tam_tru"
+                    name="tam_tru"
+                    placeholder="Địa chỉ tạm trú"
+                    type="text"
+                    pattern=".{0,}"
+                    oninput="setCustomValidity('')"
+                    required
+                    oninvalid="this.setCustomValidity('Đây là thông tin bắt buộc, vui lòng nhập đúng định dạng và không để trống!')"
+                  />
+                </div>
+              </div>
+
+              <!-- Submit/Reset -->
+              <div class="form-group">
+                <div class="col-sm-4 control-label">
+                  <label></label>
+                </div>
+                <div class="col-sm-4">
+                  <button
+                    class="btn btn-block submit-button"
+                    type="submit"
+                    name="submit_but"
+                    id="submit-button"
+                  >
+                    Submit
+                  </button>
+                </div>
+                <div class="col-sm-4">
+                  <button class="btn btn-block submit-button" type="reset">
+                    Reset
+                  </button>
+                </div>
+              </div>
+              <!-- Thông báo submit thành công/thất bại -->
+              <p id="submit-msg"></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="../public/js/registration.js"></script>
+  </body>
+</html>
